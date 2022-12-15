@@ -1,0 +1,29 @@
+{% extends 'employee_record/base.html' %}
+{% block content %}
+<h1>Employee List </h1>
+<table style="border:4px dotted red">
+    <thead style="background-color:blue;color:white" >
+        <tr>
+            <th>Name</th>
+            <th>designation</th>
+            <th>Email</th>
+            <th>password</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody style="background-color:yellow;color:brown">
+        {% for emp in emp_list %}
+        <tr>        
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.designation }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.password }}</td>
+            <td><a href="{% url 'edit_recored' emp.id %}">Edit</a></td>
+            <td><a href="{% url 'delete_recored' emp.id %}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
